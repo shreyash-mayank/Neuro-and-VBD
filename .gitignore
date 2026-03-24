@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+myenv/
+env/
+.env
+
+# Models & Large Files
+healthai_classifier_v3/
+*.pth
+*.bin
+*.model
+*.h5
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+.ipynb_checkpoints/

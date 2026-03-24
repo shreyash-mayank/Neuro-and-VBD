@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthfy</title>
+
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", sans-serif;
+        }
+
+        body {
+            background: #f6f7f6;
+            color: #222;
+        }
+
+        /* NAVBAR */
+        .nav {
+            background: #2f6f68;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        /* HERO TEXT */
+        .hero {
+            text-align: center;
+            padding: 50px 20px 20px;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            font-weight: 500;
+        }
+
+        .hero span {
+            color: #5f8f88;
+        }
+
+        .hero p {
+            margin-top: 10px;
+            color: #777;
+            font-size: 15px;
+        }
+
+        /* MAIN FEATURE (DOMINANT SECTION) */
+        .feature {
+            width: 85%;
+            max-width: 1100px;
+            min-height: 75vh;
+
+            margin: 50px auto;
+            padding: 60px;
+
+            background: linear-gradient(135deg, #5f8374, #6f9b8a);
+            border-radius: 35px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        /* CONTENT */
+        .feature-content {
+            width: 100%;
+            max-width: 700px;
+            text-align: center;
+            color: white;
+        }
+
+        .feature-content h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .feature-content p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* INPUT */
+        .input-box {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .input-box input {
+            flex: 1;
+            padding: 16px;
+            border-radius: 15px;
+            border: none;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .input-box button {
+            padding: 14px 28px;
+            border-radius: 30px;
+            border: none;
+            background: black;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .input-box button:hover {
+            transform: scale(1.05);
+        }
+
+        /* RESULT BOX */
+        .result-box {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 20px;
+
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+
+            text-align: left;
+            color: white;
+        }
+
+        .result-box h3 {
+            margin-bottom: 10px;
+        }
+
+        .result-box ul {
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        /* STEPS SECTION */
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px;
+            flex-wrap: wrap;
+        }
+
+        .step-card {
+            background: #e9f0ee;
+            padding: 20px;
+            border-radius: 20px;
+            width: 250px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-card h3 {
+            margin-bottom: 5px;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            margin: 40px 0;
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .feature {
+                padding: 30px;
+                min-height: 80vh;
+            }
+
+            .input-box {
+                flex-direction: column;
+            }
+
+            .input-box button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <div class="nav">
+        <div class="logo">Healthfy</div>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1><span>Smarter health</span><br>starts with understanding</h1>
+        <p>Your personal health assistant.</p>
+    </div>
+
+    <!-- MAIN FEATURE -->
+    <div class="feature">
+        <div class="feature-content">
+
+            <h2>How It Works</h2>
+            <p>Get personalized health insights based on your symptoms.</p>
+
+            <form action="/predict" method="POST" class="input-box">
+                <input type="text" name="symptoms" placeholder="Enter symptoms..." required>
+                <button type="submit">Check</button>
+            </form>
+
+            {% if prediction_text %}
+            <div class="result-box">
+                <h3>{{ prediction_text }}</h3>
+
+                {% if top3 %}
+                <ul>
+                    {% for p in top3 %}
+                    <li>{{ p[0] }}: {{ p[1] }}%</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            {% endif %}
+
+            {% if error_text %}
+            <div class="result-box" style="background: rgba(255,0,0,0.2);">
+                {{ error_text }}
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+
+    <!-- STEPS -->
+    <div class="steps">
+        <div class="step-card">
+            <h3>Input</h3>
+            <p>Share your symptoms.</p>
+        </div>
+
+        <div class="step-card">
+            <h3>Analysis</h3>
+            <p>Our model detects patterns using trained medical data.</p>
+        </div>
+
+        <div class="step-card">
+            <h3>Insight</h3>
+            <p>Receive clear, personalized results instantly.</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Designed to support, not replace professional medical advice.
+    </div>
+
+</body>
+
+</html>
