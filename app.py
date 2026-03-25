@@ -57,18 +57,18 @@ def keyword_predict(symptoms, lab_context):
     
     scores = {d: 0 for d in CANDIDATE_LABELS}
     keywords = {
-        'dengue': ['dengue', 'ns1', 'platelet', 'breakbone', 'retro-orbital', 'rash', 'aedes'],
-        'migraine': ['migraine', 'photophobia', 'phonophobia', 'throbbing', 'aura', 'unilateral headache'],
-        'malaria': ['malaria', 'vivax', 'falciparum', 'plasmodium', 'blood smear', 'rdt', 'parasite', 'rigor'],
-        'epilepsy': ['epilepsy', 'seizure', 'convulsion', 'eeg', 'spike-wave', 'aed', 'levetiracetam'],
-        'stroke': ['stroke', 'infarct', 'haemorrhage', 'paralysis', 'hemiplegia', 'ct brain', 'mri dwi'],
-        'parkinsons': ['parkinson', 'tremor', 'bradykinesia', 'rigidity', 'dat scan', 'levodopa', 'shuffling'],
-        'dementia': ['dementia', 'alzheimer', 'mmse', 'moca', 'memory loss', 'hippocampal', 'cognitive'],
-        'diabetic_neuropathy': ['diabetic', 'neuropathy', 'hba1c', 'monofilament', 'nerve conduction', 'tingling'],
-        'kala_azar': ['kala', 'azar', 'rk39', 'splenomegaly', 'leishmania', 'ld bodies', 'visceral'],
-        'chikungunya': ['chikungunya', 'polyarthralgia', 'joint pain', 'igm elisa', 'lymphopenia'],
-        'japanese_encephalitis': ['japanese encephalitis', 'csf igm', 'thalamic', 'encephalitis', 'eeg slowing', 'consciousness'],
-        'scrub_typhus': ['scrub typhus', 'weil-felix', 'eschar', 'oxk', 'rickettsia', 'mite', 'cichorium'],
+        'dengue': ['dengue', 'ns1', 'platelet', 'breakbone', 'retro-orbital', 'rash', 'aedes', 'high fever', 'body pain', 'pain behind eyes'],
+        'migraine': ['migraine', 'photophobia', 'phonophobia', 'throbbing', 'aura', 'unilateral headache', 'sensitivity to light', 'nausea', 'one side of the head'],
+        'malaria': ['malaria', 'vivax', 'falciparum', 'plasmodium', 'blood smear', 'rdt', 'parasite', 'rigor', 'intermittent fever', 'chills', 'shaking', 'sweating', 'mosquito exposure'],
+        'epilepsy': ['epilepsy', 'seizure', 'convulsion', 'eeg', 'spike-wave', 'aed', 'levetiracetam', 'loss of consciousness', 'body jerking', 'confusion after episode'],
+        'stroke': ['stroke', 'infarct', 'haemorrhage', 'paralysis', 'hemiplegia', 'ct brain', 'mri dwi', 'sudden weakness', 'slurred speech', 'facial drooping', 'difficulty walking'],
+        'parkinsons': ['parkinson', 'tremor', 'bradykinesia', 'rigidity', 'dat scan', 'levodopa', 'shuffling', 'slow movement', 'stiffness in muscles', 'difficulty maintaining balance'],
+        'dementia': ['dementia', 'alzheimer', 'mmse', 'moca', 'memory loss', 'hippocampal', 'cognitive', 'confusion', 'difficulty recognizing familiar people', 'trouble performing daily tasks'],
+        'diabetic_neuropathy': ['diabetic', 'neuropathy', 'hba1c', 'monofilament', 'nerve conduction', 'tingling', 'burning sensation', 'numbness', 'feet', 'history of diabetes'],
+        'kala_azar': ['kala', 'azar', 'rk39', 'splenomegaly', 'leishmania', 'ld bodies', 'visceral', 'prolonged fever', 'weight loss', 'enlarged spleen', 'darkening of skin'],
+        'chikungunya': ['chikungunya', 'polyarthralgia', 'joint pain', 'igm elisa', 'lymphopenia', 'joint swelling', 'difficulty moving due to pain'],
+        'japanese_encephalitis': ['japanese encephalitis', 'csf igm', 'thalamic', 'encephalitis', 'eeg slowing', 'consciousness', 'altered consciousness', 'vomiting'],
+        'scrub_typhus': ['scrub typhus', 'weil-felix', 'eschar', 'oxk', 'rickettsia', 'mite', 'cichorium', 'swollen lymph nodes', 'black scab'],
     }
     
     for disease, kws in keywords.items():

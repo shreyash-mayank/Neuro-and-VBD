@@ -7199,3 +7199,20 @@ parkinsons_0597,parkinsons,"reduced arm swing, masked facies, and slowness of mo
 parkinsons_0598,parkinsons,rigidity; reduced arm swing; resting tremor; dopamine deficiency suspected.
 parkinsons_0599,parkinsons,"micrographia, bradykinesia, and resting tremor. levodopa response positive. dopamine deficiency suspected. no acute fever. Include timing and lab trend before confirmation."
 parkinsons_0600,parkinsons,"Chronic motor slowing: masked facies, rigidity, bradykinesia. dopamine deficiency suspected."
+label,input_text
+migraine,severe headache with sensitivity to light nausea and throbbing pain on one side of the head
+stroke,sudden weakness on one side of the body slurred speech facial drooping and difficulty walking
+epilepsy,repeated seizures with loss of consciousness body jerking and confusion after episode
+parkinsons,slow movement hand tremors stiffness in muscles and difficulty maintaining balance
+dementia,progressive memory loss confusion difficulty recognizing familiar people and trouble performing daily tasks
+diabetic_neuropathy,burning sensation numbness and tingling in feet with reduced sensation and long history of diabetes
+dengue,high fever severe body pain headache pain behind eyes rash and very low platelet count
+malaria,intermittent fever with chills shaking sweating after fever and recent mosquito exposure
+kala_azar,prolonged fever weight loss enlarged spleen severe weakness and darkening of skin
+chikungunya,high fever severe joint pain swelling in joints rash and difficulty moving due to pain
+japanese_encephalitis,high fever confusion seizures vomiting and altered consciousness after mosquito exposure
+scrub_typhus,high fever rash swollen lymph nodes and black scab on skin with low platelet count
+migraine,headache
+dengue,fever headache vomiting and body pain for 3 days
+chikungunya,fever joint pain rash and fatigue
+stroke,sudden severe headache confusion vomiting and inability to speak
