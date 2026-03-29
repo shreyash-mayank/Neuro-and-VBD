@@ -176,6 +176,24 @@
         }
 
         /* FOOTER */
+        .warning-alert {
+            background: rgba(255, 193, 7, 0.15);
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #ffc107;
+            text-align: left;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .warning-alert i {
+            margin-top: 3px;
+        }
+
         .footer {
             text-align: center;
             margin: 40px 0;
@@ -228,6 +246,11 @@
 
             {% if prediction_text %}
             <div class="result-box">
+                {% if warning %}
+                <div class="warning-alert">
+                    <span><strong>Note:</strong> {{ warning }}</span>
+                </div>
+                {% endif %}
                 <h3>{{ prediction_text }}</h3>
 
                 {% if top3 %}

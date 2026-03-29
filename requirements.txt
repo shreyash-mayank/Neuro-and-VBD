@@ -1,11 +1,8 @@
 Flask==3.0.0
 Werkzeug==3.0.0
 gunicorn==21.2.0
-
-# Note: For the REAL HealthAI PyTorch model to run on Render, uncomment the following:
-# torch==2.1.0 --index-url https://download.pytorch.org/whl/cpu
-# transformers==4.35.0
-# numpy==1.26.0
-# Warning: Running PyTorch normally requires a paid Render tier (minimum 1GB RAM).
-# If these are left commented, the app will gracefully use the DummyHealthModel 
-# and run effortlessly on the Render Free Tier without OOM errors!
+scikit-learn
+transformers
+torch --index-url https://download.pytorch.org/whl/cpu
+numpy
+sentencepiece
